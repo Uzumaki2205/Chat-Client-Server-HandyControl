@@ -45,13 +45,20 @@ namespace Server
         {
             if (tbxMess.Text != string.Empty)
             {
-                foreach (var item in ClientList)
+                try
                 {
-                    Send(item.IPUser);
-                }
+                    foreach (var item in ClientList)
+                    {
+                        Send(item.IPUser);
+                    }
 
-                AddMessage(tbxMess.Text);
-                tbxMess.Clear();
+                    AddMessage(tbxMess.Text);
+                    tbxMess.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
