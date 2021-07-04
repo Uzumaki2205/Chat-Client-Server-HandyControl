@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chat-Client-Server-HandyControl", "Chat-Client-Server-HandyControl\Chat-Client-Server-HandyControl.csproj", "{4EECDAFA-73CD-49B3-89F3-3085DAD4FB3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{742A68FA-B7D1-4E58-B210-F864B74BC5DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EECDAFA-73CD-49B3-89F3-3085DAD4FB3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EECDAFA-73CD-49B3-89F3-3085DAD4FB3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EECDAFA-73CD-49B3-89F3-3085DAD4FB3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EECDAFA-73CD-49B3-89F3-3085DAD4FB3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{742A68FA-B7D1-4E58-B210-F864B74BC5DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{742A68FA-B7D1-4E58-B210-F864B74BC5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{742A68FA-B7D1-4E58-B210-F864B74BC5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{742A68FA-B7D1-4E58-B210-F864B74BC5DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EEC18B57-6EF4-4052-8875-3AB1B4E8B0C4}
+	EndGlobalSection
+EndGlobal

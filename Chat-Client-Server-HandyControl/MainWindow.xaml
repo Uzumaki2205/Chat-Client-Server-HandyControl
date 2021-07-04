@@ -1,0 +1,112 @@
+﻿<hc:Window x:Class="Chat_Client_Server_HandyControl.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chat_Client_Server_HandyControl"
+        mc:Ignorable="d" AllowsTransparency="True" 
+        WindowStyle="None" Background="Transparent"
+                xmlns:hc="https://handyorg.github.io/handycontrol"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Title="Client" Height="540" Width="500">
+    <Border BorderBrush="#2979ff" BorderThickness="1" 
+            CornerRadius="10" Background="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Border MouseDown="Border_MouseDown"
+                CornerRadius="8 8 0 0" Background="#2979ff">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Height="25" Margin="5 0" 
+                        Style="{StaticResource ButtonIcon}" Foreground="White" 
+                            hc:IconElement.Geometry="{StaticResource WindowsGeometry}"
+                            HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"
+                           Text="Client" Foreground="White" FontSize="16"/>
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Tag="Minimize" Click="btnCommand_Click"
+                            Height="25" Margin="5 0"
+                            Style="{StaticResource ButtonIcon}" Foreground="White" 
+                            hc:IconElement.Geometry="{StaticResource WindowMinGeometry}"
+                            HorizontalAlignment="Right"/>
+                        <Button Tag="Maximize" Click="btnCommand_Click"
+                            Height="25" Margin="5 0"
+                            Style="{StaticResource ButtonIcon}" Foreground="White" 
+                            hc:IconElement.Geometry="{StaticResource WindowMaxGeometry}"
+                            HorizontalAlignment="Right"/>
+                        <Button Tag="Close"
+                            Height="25" Margin="5 0" Click="btnCommand_Click"
+                            Style="{StaticResource ButtonIcon}" Foreground="White" 
+                            hc:IconElement.Geometry="{StaticResource CloseGeometry}"
+                            HorizontalAlignment="Right"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <StackPanel Grid.Row="1" Margin="30">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="tbxIP" Margin="10 10"
+                        Style="{StaticResource TextBoxExtend}" 
+                        hc:InfoElement.TitlePlacement="Left" 
+                        hc:InfoElement.Title="IP: "
+                        hc:InfoElement.Placeholder="Enter IP here...."
+                        Width="200" VerticalAlignment="Center"/>
+                    <TextBox Name="tbxPort" Margin="10 10 30 10"
+                        Style="{StaticResource TextBoxExtend}" 
+                        hc:InfoElement.TitlePlacement="Left" 
+                        hc:InfoElement.Title="Port: "
+                        hc:InfoElement.Placeholder="Ex: 8080"
+                        Width="100" VerticalAlignment="Center"/>
+                    <Button Name="btnConnect" Click="btnConnect_Click"
+                            Style="{StaticResource ButtonPrimary}"
+                            Content="Connect" Margin="5"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10 0">
+                    <TextBox Name="tbxNickName"
+                        Style="{StaticResource TextBoxExtend}" 
+                        hc:InfoElement.TitlePlacement="Left" 
+                        hc:InfoElement.Title="NickName: "
+                        hc:InfoElement.Placeholder="Ex: Uzz"
+                        Width="200" VerticalAlignment="Center"/>
+                    
+                    <Button Click="btnNickname_Click"
+                            Style="{StaticResource ButtonPrimary}"
+                            Content="Apply" Margin="83 0 0 0"/>
+                    <Button Name="btnDisConnect" Click="btnDisconnect_Click"
+                            Style="{StaticResource ButtonPrimary}"
+                            Content="DisConnect" Margin="5"/>
+                </StackPanel>
+                
+                <Border CornerRadius="10" Padding="0" Margin="0 20"
+                        BorderBrush="#2979ff" BorderThickness="1">
+                    <StackPanel>
+                        <ListView Name="lsvMess" ScrollViewer.CanContentScroll="True"
+                                     BorderThickness="0" Height="250" 
+                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                     Style="{StaticResource ListBoxBaseStyle}" Margin="20">
+
+                        </ListView>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Name="tbxMess" Margin="10 0"
+                                     PreviewKeyDown="tbxMess_PreviewKeyDown"
+                                Style="{StaticResource TextBoxExtend}" 
+                                hc:InfoElement.Placeholder="Enter Message here ..."
+                                Width="335" VerticalAlignment="Center"/>
+                            <Button Name="btnSend" Width="65" Click="btnSend_Click"
+                                Style="{StaticResource ButtonPrimary}"
+                                Content="Send" Margin="5 10"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Border>
+</hc:Window>
