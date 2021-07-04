@@ -33,7 +33,6 @@ namespace Server
         {
             // Server
             InitializeComponent();
-            this.DataContext = ClientList;
         }
 
         private void btnStartServer_Click(object sender, RoutedEventArgs e)
@@ -172,20 +171,20 @@ namespace Server
                             if (i == 0)
                             {
                                 ClientList.Add(user);
-                                //this.Dispatcher.BeginInvoke(new Action(() =>
-                                //{
-                                //    cbxUser.Items.Add(new ComboBoxItem() { Content = nickname });
-                                //}));
+                                this.Dispatcher.BeginInvoke(new Action(() =>
+                                {
+                                    cbxUser.Items.Add(new ComboBoxItem() { Content = nickname });
+                                }));
                             }
                             else client.Send(Serialize("User is exist"));
                         }
                         else
                         {
                             ClientList.Add(user);
-                            //this.Dispatcher.BeginInvoke(new Action(() =>
-                            //{
-                            //    cbxUser.Items.Add(new ComboBoxItem() { Content = nickname });
-                            //}));
+                            this.Dispatcher.BeginInvoke(new Action(() =>
+                            {
+                                cbxUser.Items.Add(new ComboBoxItem() { Content = nickname });
+                            }));
                         }
                     }
                     //lsvMess.ItemsSource = ClientList;

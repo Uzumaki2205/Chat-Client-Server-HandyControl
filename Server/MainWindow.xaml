@@ -55,7 +55,6 @@
             <StackPanel Grid.Row="1" Margin="30">
                 <StackPanel Orientation="Horizontal">
                     <ComboBox Name="cbxUser" Margin="10 10"
-                              ItemsSource="{Binding ClientList, Mode=TwoWay}"
                         Style="{StaticResource ComboBoxExtend}" 
                         hc:InfoElement.TitlePlacement="Left" 
                         hc:InfoElement.Title="Users: "
