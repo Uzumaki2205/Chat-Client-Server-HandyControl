@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         AllowsTransparency="True" 
         WindowStyle="None" Background="Transparent"
-                xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         Title="Server" Height="520" Width="500"
            Closed="Window_Closed">

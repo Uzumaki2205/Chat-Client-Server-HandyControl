@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chat_Client_Server_HandyControl"
-        mc:Ignorable="d" AllowsTransparency="True" 
+        mc:Ignorable="d" AllowsTransparency="True"
         WindowStyle="None" Background="Transparent"
-                xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         Title="Client" Height="540" Width="500">
     <Border BorderBrush="#2979ff" BorderThickness="1" 

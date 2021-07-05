@@ -25,6 +25,7 @@ namespace Server
     /// </summary>
     public partial class MainWindow : HandyControl.Controls.Window
     {
+        public int DefaultPort { get; set; }
         public IPEndPoint IP { get; set; }
         public Socket Server { get; set; }
         public List<Users> ClientList { get; set; }
@@ -32,13 +33,30 @@ namespace Server
         public MainWindow()
         {
             // Server
+            DefaultPort = 8888;
             InitializeComponent();
         }
 
         private void btnStartServer_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Server is Started...");
-            backgroundWork();
+            if (tbxPort.Text != string.Empty)
+            {
+                try
+                {
+                    DefaultPort = int.Parse(tbxPort.Text);
+                    MessageBox.Show("Server is Started...");
+                    backgroundWork();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Port is invalid");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Server is Started...");
+                backgroundWork();
+            }
         }
 
         private void btnSend_Click(object sender, RoutedEventArgs e)
@@ -73,7 +91,8 @@ namespace Server
             try
             {
                 ClientList = new List<Users>();
-                IP = new IPEndPoint(IPAddress.Any, 8888);
+
+                IP = new IPEndPoint(IPAddress.Any, DefaultPort);
                 Server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
                 Server.Bind(IP);
 

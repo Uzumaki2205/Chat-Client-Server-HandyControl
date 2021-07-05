@@ -28,17 +28,43 @@ namespace Chat_Client_Server_HandyControl
         public IPEndPoint IP { get; set; }
         public Socket Client { get; set; }
         public string Nickname { get; set; }
+
+        public string DefaultIP { get; set; }
+        public int DefaultPort { get; set; }
         public MainWindow()
         {
             // Client
+            DefaultIP = "127.0.0.1";
+            DefaultPort = 8888;
             InitializeComponent();
         }
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
-            Thread thread = new Thread(() => ConnectToServer());
-            thread.IsBackground = true;
-            thread.Start();
+            bool err = false;
+            if (tbxIP.Text != string.Empty)
+            {
+                DefaultIP = tbxIP.Text;
+            }
+            if (tbxPort.Text != string.Empty)
+            {
+                try
+                {
+                    DefaultPort = int.Parse(tbxPort.Text);
+                }
+                catch (Exception)
+                {
+                    err = true;
+                    MessageBox.Show("Port is invalid");
+                }
+            }
+
+            if (err != true)
+            {
+                Thread thread = new Thread(() => ConnectToServer());
+                thread.IsBackground = true;
+                thread.Start();
+            }
         }
         private void btnNickname_Click(object sender, RoutedEventArgs e)
         {
@@ -80,7 +106,7 @@ namespace Chat_Client_Server_HandyControl
         {
             try
             {
-                IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8888);
+                IP = new IPEndPoint(IPAddress.Parse(DefaultIP), DefaultPort);
                 Client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 Client.Connect(IP);
                 MessageBox.Show("Connect Success!!");
